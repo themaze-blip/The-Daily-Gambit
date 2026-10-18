@@ -207,7 +207,7 @@ h1{color:#2e2250}.tag{color:#8a6a2f}.sub{color:#5a4d80}
 @keyframes fall{to{top:108vh;transform:rotate(720deg) translateX(50px)}}
 #intro{position:fixed;inset:0;z-index:100;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;color:#f6f0e6;background:radial-gradient(900px 600px at 50% 30%,#5a4a8f,#2a2050 70%,#1b1436);transition:opacity .6s,visibility .6s;cursor:pointer}
 #intro.out{opacity:0;visibility:hidden}
-#intro img{width:112px;animation:iL 1.2s cubic-bezier(.2,.8,.2,1) both;filter:drop-shadow(0 14px 24px rgba(0,0,0,.5))}
+#intro img{width:112px;border-radius:24%;animation:iL 1.2s cubic-bezier(.2,.8,.2,1) both;filter:drop-shadow(0 14px 24px rgba(0,0,0,.5))}
 #intro h2{margin:6px 0 0;font:700 clamp(30px,8vw,48px)/1 var(--font-display);animation:iU .9s .35s both}
 #intro p{margin:0;font:500 11px/1 var(--font-body);letter-spacing:.32em;text-transform:uppercase;color:#c9a96a;animation:iU .9s .6s both}
 #intro .bar{width:160px;height:2px;background:rgba(255,255,255,.18);border-radius:2px;overflow:hidden;margin-top:18px}
@@ -218,7 +218,8 @@ h1{color:#2e2250}.tag{color:#8a6a2f}.sub{color:#5a4d80}
 @media (prefers-reduced-motion:reduce){#intro *{animation:none!important}.confetti{display:none}}
 </style>
 
-<div id="intro"><img alt=""><h2>The Daily Gambit</h2><p>Small moves. Bigger you.</p><div class="bar"><i></i></div></div>
+<div id="intro"><img alt="" src="icons/icon-192.png"><h2>The Daily Gambit</h2><p>Small moves. Bigger you.</p><div class="bar"><i></i></div></div>
+<script>(function(){var el=document.getElementById("intro");if(!el)return;var done=function(){el.classList.add("out");setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el);},700);};setTimeout(done,2300);el.addEventListener("click",done);})();</script>
 <div class="wrap" id="app"></div>
 
 <script src="vendor/chess.js"></script>
@@ -381,7 +382,6 @@ async function syncPull(){if(!SY.token||ui.busy||syncing)return;syncing=true;
     SY.msg='Synced '+new Date().toLocaleTimeString();}catch(e){SY.msg='Sync problem: '+e.message;}
   syncing=false;saveSY();}
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)syncPull();});setInterval(syncPull,45000);setTimeout(syncPull,500);
-{const el=document.getElementById('intro');if(el){el.querySelector('img').src=LOGO;const done=()=>{el.classList.add('out');setTimeout(()=>el.remove(),700);};setTimeout(done,2300);el.addEventListener('click',done);}}
 if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0)navigator.serviceWorker.register('sw.js').catch(()=>{});
 
 
