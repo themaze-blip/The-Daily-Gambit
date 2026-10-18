@@ -1,11 +1,12 @@
 {
+ "id": "./",
  "name": "The Daily Gambit",
  "short_name": "Daily Gambit",
  "description": "Small moves. Bigger you.",
+ "lang": "en",
  "start_url": "./",
  "scope": "./",
  "display": "standalone",
- "orientation": "any",
  "background_color": "#E5D0FC",
  "theme_color": "#453672",
  "icons": [
@@ -13,13 +14,25 @@
    "src": "icons/icon-192.png",
    "sizes": "192x192",
    "type": "image/png",
-   "purpose": "any maskable"
+   "purpose": "any"
   },
   {
    "src": "icons/icon-512.png",
    "sizes": "512x512",
    "type": "image/png",
-   "purpose": "any maskable"
+   "purpose": "any"
+  },
+  {
+   "src": "icons/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "maskable"
+  },
+  {
+   "src": "icons/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
   }
  ]
 }
